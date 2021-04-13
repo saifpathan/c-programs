@@ -1,13 +1,14 @@
 #include<stdio.h>
-int*myfun();
+int* myfun();
 void main()
 {
 	int*ptr;
-	ptr=myfun();
-	printf("%d",*ptr);				//unauthorise ho gaya(deloacte)=room mila,checkout kia;fir usme jaa rahe ho
-}									//use dangling pointer kehte h
-int*myfun()
+	ptr = myfun();
+	printf("\nArray values=%d", ptr);	
+	printf("\n\n");													//stack memory cant b shared
+}														//so here comes heap memory
+int* myfun()
 {
-	int b=20;
-	return &b;
+	int arr[5] = { 10, 20, 30 };
+	return arr;
 }
